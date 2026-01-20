@@ -74,3 +74,8 @@ Zone = Yorkville West
         limit 1
     )
     ;
+
+
+Question 7: 
+-----------------------------
+    terraform init, terraform apply -auto-approve, terraform destroy
