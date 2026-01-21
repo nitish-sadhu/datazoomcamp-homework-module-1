@@ -16,7 +16,7 @@ pip version is 25.3
 
 Question 2:
 -----------------------------
-The hostname and port that pgadmin has to use to connect to postgres database is "postgres:5432"/"db:5432".
+ANSWER: The hostname and port that pgadmin has to use to connect to postgres database is "postgres:5432"/"db:5432".
 
 
 -----------------------------
@@ -42,13 +42,13 @@ Preparing the data and inserting into a postgres database:
 
 - NOTE: To create the postgres database and to query the database using pgadmin, I have used the docker-compose.yaml file provided in the homework. 
         `docker compose up`
-        
+
 - The code inserting into the database is in the "ingest_notebook.ipynb"
 
 Question 3:
 -----------------------------
 - For the trips in November 2025 (lpep_pickup_datetime between '2025-11-01' and '2025-12-01', exclusive of the upper bound), how many trips had a trip_distance of less than or equal to 1 mile?
-Answer: trips = 8007
+ANSWER: trips = 8007
 
     select count(*) from green_trip_data
     where 
@@ -61,7 +61,7 @@ Answer: trips = 8007
 Question 4: 
 -----------------------------
 - Which was the pick up day with the longest trip distance? Only consider trips with trip_distance less than 100 miles (to exclude data errors).
-Answer: 2025-11-14
+ANSWER: 2025-11-14
 
     select cast(lpep_pickup_datetime as date) as pick_up_day, trip_distance from green_trip_data
     where trip_distance < 100
@@ -75,7 +75,7 @@ Answer: 2025-11-14
 Question 5: 
 -----------------------------
 - Which was the pickup zone with the largest total_amount (sum of all trips) on November 18th, 2025?
-Answer: zone = East Harlem North
+ANSWER: zone = East Harlem North
 
     select tzd."Zone", sum(gtd.total_amount) from green_trip_data gtd
     inner join taxi_zones tzd
@@ -89,7 +89,7 @@ Answer: zone = East Harlem North
 Question 6: 
 -----------------------------
 - For the passengers picked up in the zone named "East Harlem North" in November 2025, which was the drop off zone that had the largest tip?
-Answer: Zone = Yorkville West
+ANSWER: Zone = Yorkville West
 
     select "Zone"from taxi_zones
     where "LocationID" = (
@@ -106,4 +106,17 @@ Answer: Zone = Yorkville West
 
 Question 7: 
 -----------------------------
-    terraform init, terraform apply -auto-approve, terraform destroy
+ANSWER: terraform init, terraform apply -auto-approve, terraform destroy
+
+- To complete this exercise, I have copied the 'main.tf' and 'variables.tf' files from the link provided and have made the necessary changes.
+
+- To initialize terraform
+        `terraform init`
+- To check the plan of terraform
+        `terraform plan`
+- To apply the plan.
+        `terraform apply`
+- To destroy the services created by terraform.
+        `terraform destroy`
+
+NOTE: I have not pushed my key.json file to github for obvious reasons.
